@@ -2,8 +2,9 @@ import platform
 from os import system
 
 class Hangman:
-    def __init__(self, word) -> None:
+    def __init__(self, word, word_description) -> None:
         self.word = word
+        self.word_description = word_description
         self.player_guess : str
         self.player_progress = ["_"]*len(self.word)
         self.tries = 7
@@ -95,6 +96,7 @@ class Hangman:
         system(self.clear_command)
         self._draw_hangman(6)
         print("\t\t",*self.player_progress, sep = " ")
+        print(f"Hint : {self.word_description}")
         print(f"\t\tTries left : {self.tries}")
 
     @staticmethod
@@ -142,3 +144,6 @@ class Hangman:
             return "cls"
         else:
             return ValueError(f"Unsupported operating system : {os_name}")
+
+a = Hangman("unicorn", "your name")
+a.play_game()
