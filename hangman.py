@@ -144,6 +144,3 @@ class Hangman:
             return "cls"
         else:
             return ValueError(f"Unsupported operating system : {os_name}")
-
-a = Hangman("unicorn", "your name")
-a.play_game()
